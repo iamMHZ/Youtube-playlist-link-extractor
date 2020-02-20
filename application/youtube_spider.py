@@ -16,10 +16,10 @@ class YoutubeSpider(scrapy.Spider):
 
     def __init__(self, *args, **kwargs):
         super(YoutubeSpider, self).__init__(*args, **kwargs)
-        self.link = args[0]
+        self.start_url = args[0]
 
     def start_requests(self):
-        yield scrapy.Request(url=self.link, callback=self.parse)
+        yield scrapy.Request(url=self.start_url, callback=self.parse)
 
     def parse(self, response):
         print("\n\n\n\n######################################################################")
@@ -27,6 +27,9 @@ class YoutubeSpider(scrapy.Spider):
         links = response.css('a::attr(href)').extract()
         # removing repetitive links by converting list to set
         links = set(links)
+
+        # links are sored based on their playlist order:
+        links = sorted(links, key=lambda l: l[-1])
 
         for link in links:
             if str(link).__contains__('index'):
@@ -39,8 +42,8 @@ class YoutubeSpider(scrapy.Spider):
                 self.open_link_in_browser(download_page_link)
 
                 print(download_page_link)
-                self.write_to_file(download_page_link)
-                self.write_to_file(youtube_page_link)
+                self.write_to_file('YOUTUBE : ' + youtube_page_link)
+                self.write_to_file('DOWNLOAD : ' + download_page_link)
                 self.write_to_file("")
 
                 # self.crawl_inside_download_page(download_page_link)
@@ -51,7 +54,7 @@ class YoutubeSpider(scrapy.Spider):
         # opening link in default browser
         webbrowser.open(link, new=2)
         #  waiting until current page loads in browser
-        time.sleep(5)
+        time.sleep(3)
 
     def crawl_inside_download_page(self, link):
         start_page = requests.get(link)
