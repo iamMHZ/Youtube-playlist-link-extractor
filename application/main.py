@@ -1,8 +1,24 @@
+import threading
+
 import qdarkstyle
 from PyQt5 import QtWidgets
+from scrapy.crawler import CrawlerRunner
+from twisted.internet import reactor
 
 from application.ui_window import Ui_MainWindow
-from application.youtube_spider import extract_links
+from application.youtube_spider import YoutubeSpider
+
+
+class CrawlerThread(threading.Thread):
+    def __init__(self, link):
+        super(CrawlerThread, self).__init__()
+        self.link = link
+
+    def run(self):
+        crawler_runner = CrawlerRunner()
+        crawler_runner.crawl(YoutubeSpider, self.link)
+
+        reactor.run(installSignalHandlers=False)
 
 
 class Window(QtWidgets.QMainWindow):
@@ -17,8 +33,8 @@ class Window(QtWidgets.QMainWindow):
     def extract_links(self):
         link = self.ui.linkEditLine.text()
         if len(link) > 0 and link.__contains__('youtube.com'):
-            extract_links(link)
-
+            thread = CrawlerThread(link).start()
+            thread.join()
         else:
             # raise Exception("INVALID LINK")
             print("INVALID LINK")
