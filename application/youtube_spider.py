@@ -22,7 +22,8 @@ class YoutubeSpider(scrapy.Spider):
         yield scrapy.Request(url=self.start_url, callback=self.parse)
 
     def parse(self, response):
-        print("\n\n\n\n######################################################################")
+        print('\n\n\n\n')
+        print("".rjust(70, '#'))
 
         links = response.css('a::attr(href)').extract()
         # removing repetitive links by converting list to set
@@ -49,7 +50,7 @@ class YoutubeSpider(scrapy.Spider):
 
             # self.crawl_inside_download_page(download_page_link)
 
-        print("\n\n\n\n######################################################################")
+        print(" \n\n\n\n".rjust(70, '#') + "\n\n\n\n")
 
     def extract_playlist_links(self, links):
         palylist_links = []
