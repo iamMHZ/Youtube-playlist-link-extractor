@@ -28,27 +28,40 @@ class YoutubeSpider(scrapy.Spider):
         # removing repetitive links by converting list to set
         links = set(links)
 
+        links = self.extract_playlist_links(links)
         # links are sored based on their playlist order:
-        links = sorted(links, key=lambda l: l[-1])
+        links = sorted(links, key=lambda l: int(str(l).split('=')[-1].strip()))
 
+        # open and save links
         for link in links:
-            if str(link).__contains__('index'):
-                # print(link)
+            # print(link)
 
-                download_page_link = YoutubeSpider.download_link_prefix + link
-                youtube_page_link = YoutubeSpider.youtube_link_prefix + link
+            download_page_link = YoutubeSpider.download_link_prefix + link
+            youtube_page_link = YoutubeSpider.youtube_link_prefix + link
 
-                # open download link in default browser
-                self.open_link_in_browser(download_page_link)
+            # open download link in default browser
+            self.open_link_in_browser(download_page_link)
 
-                print(download_page_link)
-                self.write_to_file('YOUTUBE : ' + youtube_page_link)
-                self.write_to_file('DOWNLOAD : ' + download_page_link)
-                self.write_to_file("")
+            print(download_page_link)
+            self.write_to_file('YOUTUBE : ' + youtube_page_link)
+            self.write_to_file('DOWNLOAD : ' + download_page_link)
+            self.write_to_file("")
 
-                # self.crawl_inside_download_page(download_page_link)
+            # self.crawl_inside_download_page(download_page_link)
 
         print("\n\n\n\n######################################################################")
+
+    def extract_playlist_links(self, links):
+        palylist_links = []
+
+        # filter other links:
+        for link in links:
+
+            if str(link).__contains__('index') and str(link).__contains__('watch') and not str(link).__contains__(
+                    'https'):
+                palylist_links.append(link)
+
+        return palylist_links
 
     def open_link_in_browser(self, link):
         # opening link in default browser
