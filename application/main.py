@@ -33,8 +33,8 @@ class Window(QtWidgets.QMainWindow):
     def extract_links(self):
         link = self.ui.linkEditLine.text()
         if len(link) > 0 and link.__contains__('youtube.com'):
-            thread = CrawlerThread(link).start()
-            thread.join()
+            thread = CrawlerThread(link)
+            thread.start()
         else:
             # raise Exception("INVALID LINK")
             print("INVALID LINK")
