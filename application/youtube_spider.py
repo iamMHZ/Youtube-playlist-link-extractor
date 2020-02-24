@@ -81,5 +81,7 @@ def extract_links(link):
 
 
 if __name__ == '__main__':
+    # link = input('Insert a Youtube PlayList link :  ')
+
     link = 'https://www.youtube.com/watch?v=EeFqcmaw6iA&list=PL7u4lWXQ3wfKqFjzTSBmylEeVP9ibx_XT'
     extract_links(link)
