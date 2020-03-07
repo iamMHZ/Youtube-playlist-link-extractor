@@ -1,18 +1,25 @@
 <h1>Youtube playlist link extractor : </h1>
 
-<p> This application Extracts links of a playlist from youtube <br> 
+<p>This application Extracts links of a playlist from youtube <br> 
 And it simplifies the process of downloading a playlist from youtube<br>
-Extracted links will be in links.txt file.</p>
+Extracted links will be in 
+<a href="https://github.com/iamMHZ/Youtube-playlist-link-extractor/blob/master/application/links.txt">links.txt</a>
+file.</p>
 <br>
+
+<a href="https://www.w3schools.com">Visit W3Schools.com!</a>
+
+
+
 
 <h3>Requirements: </h3>
 <ul>
-  <li>PyQt5</li>
-  <li>scrapy</li>
+  <li><a href="https://www.riverbankcomputing.com/software/pyqt/intro">PyQt5</a></li>
+  <li><a href="https://scrapy.org/">Scrapy</a></li>
+  <li><a href="https://twistedmatrix.com/trac/">Twisted</a></li>
   <li>qdarkstyle</li>
   <li>lxml</li>
   <li>requests</li>
-  <li>twisted</li>
 
 </ul>
 
