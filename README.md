@@ -3,7 +3,7 @@
 <p>This application Extracts links of a playlist from youtube <br> 
 And it simplifies the process of downloading a playlist from youtube<br>
 Extracted links will be in 
-<a href="https://github.com/iamMHZ/Youtube-playlist-link-extractor/blob/master/application/links.txt">links.txt</a>
+<a href="https://github.com/iamMHZ/Youtube-playlist-link-extractor/blob/master/application/links.txt" target="_blank">links.txt</a>
 file.</p>
 <br>
 
@@ -17,9 +17,10 @@ file.</p>
   <li><a href="https://www.riverbankcomputing.com/software/pyqt/intro">PyQt5</a></li>
   <li><a href="https://scrapy.org/">Scrapy</a></li>
   <li><a href="https://twistedmatrix.com/trac/">Twisted</a></li>
-  <li>qdarkstyle</li>
-  <li>lxml</li>
-  <li>requests</li>
+  <li><a href="https://requests.readthedocs.io/en/master/">requests</a></li>
+  <li><a href="https://github.com/ColinDuquesnoy/QDarkStyleSheet">QDarkStylesheet</a></li>
+  <li><a href="https://lxml.de/">lxml</a></li>
+ 
 
 </ul>
 
