@@ -7,7 +7,7 @@ Extracted links will be in
 file.</p>
 <br>
 
-<a href="https://www.w3schools.com">Visit W3Schools.com!</a>
+ 
 
 
 
