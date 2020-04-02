@@ -2,7 +2,7 @@
 
 <p>This application Extracts links of a playlist from youtube <br> 
 And it simplifies the process of downloading a playlist.<br>
-Extracted links will be in 
+Extracted links will be in the
 <a href="https://github.com/iamMHZ/Youtube-playlist-link-extractor/blob/master/application/links.txt" target="_blank">links.txt</a>
 file.</p>
 <br>
