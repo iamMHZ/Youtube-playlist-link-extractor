@@ -31,8 +31,6 @@ file.</p>
 
 <img src="https://github.com/iamMHZ/Youtube-playlist-link-extractor/blob/master/screenshots/s1.gif" alt="UI" >
 <br>
-<img src="https://github.com/iamMHZ/Youtube-playlist-link-extractor/blob/master/screenshots/s2.JPG" alt="UI" >
-<br>
 <img src="https://github.com/iamMHZ/Youtube-playlist-link-extractor/blob/master/screenshots/s3.JPG" alt="UI" >
 <br>
 
